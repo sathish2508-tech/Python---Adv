@@ -1,0 +1,49 @@
+# Implement the Vehicle and Car classes appropriately
+
+class Vehicle:
+    def __init__(self, manufacturer, model):
+        self.manufacturer = manufacturer
+        self.model = model
+    def get_vehicle_info(self):
+        return f"Vehicle Manufacturer: {self.manufacturer}, Model: {self.model}"
+
+class Car(Vehicle):
+    def __init__(self, manufacturer, model, manufacturing_year, engine):
+        super().__init__(manufacturer, model)
+        self.__manufacturing_year = manufacturing_year 
+        self.__engine_type = engine
+    
+    def set_manufacturing_year(self, new_manufacturing_year):
+        self.__manufacturing_year = new_manufacturing_year
+    
+    def get_manufacturing_year(self):
+        return self.__manufacturing_year
+        
+    def set_engine_type(self, new_engine):
+        self.__engine_type = new_engine
+        
+    def get_engine_type(self):
+        return self.__engine_type
+        
+    def get_car_info(self):
+        vehicle_info = super().get_vehicle_info()
+        return f"{vehicle_info}, Manufacturing Year: {self.__manufacturing_year}, Engine Type: {self.__engine_type}"
+        
+
+# Do not change any code below.
+# Do not call this function anywhere.
+
+def main():
+    manufacturer = input()
+    model = input()
+    manufacturing_year = int(input())
+    engine = input()
+    new_manufacturing_year = int(input())
+    new_engine = input()
+    
+    car = Car(manufacturer, model, manufacturing_year, engine)
+    car.set_manufacturing_year(new_manufacturing_year)
+    car.set_engine_type(new_engine)
+    print(car.get_car_info())
+
+main()
