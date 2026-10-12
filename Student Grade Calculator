@@ -1,0 +1,44 @@
+# Implement the Student class appropriately
+
+class Student:
+    def __init__(self, first_name, last_name, age, city):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.city = city
+        self.grades = []
+        
+    def add_grade(self, grade):
+        self.grades.append(grade)
+        
+    def average_grade(self):
+        if len(self.grades) == 0:
+            return None
+        return round(sum(self.grades) / len(self.grades), 2)
+        
+    def get_student_info(self):
+        average = self.average_grade()
+        
+        if average is None:
+            return f"Name: {self.first_name} {self.last_name}, Age: {self.age}, City: {self.city}, Average Grade: N/A"
+        return f"Name: {self.first_name} {self.last_name}, Age: {self.age}, City: {self.city}, Average Grade: {average}"
+
+# Do not change any code below.
+# Do not call this function anywhere.
+
+def main():
+    first_name = input()
+    last_name = input()
+    age = int(input())
+    city = input()
+    grades = input()
+    grades_list = grades.split()
+    
+    student = Student(first_name,last_name,age,city)
+     
+    for grade in grades_list:
+        student.add_grade(int(grade))
+
+    print(student.get_student_info())  
+
+main()
