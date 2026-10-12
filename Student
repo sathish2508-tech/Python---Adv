@@ -1,0 +1,17 @@
+class Student:
+    def __init__(self, first_name, last_name, age, city):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.city = city
+    def get_student_info(self):
+        return f"Student Name: {self.first_name} {self.last_name}, Age: {self.age}, City: {self.city}"
+def main():
+    first_name = input()
+    last_name = input()
+    age = int(input())
+    city = input()
+    
+    student = Student(first_name, last_name, age, city)
+    print(student.get_student_info())
+main()
